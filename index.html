@@ -1,20 +1,151 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Welcome to bennetto.com</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack Bennetto</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            color: #222;
+            background: #fafaf8;
+            line-height: 1.7;
+        }
+
+        /* Hero */
+        .hero {
+            width: 100%;
+            max-height: 480px;
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            object-position: center 40%;
+            display: block;
+        }
+
+        /* Content */
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: normal;
+            letter-spacing: 0.02em;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        a {
+            color: #2a6496;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            margin: 0.5rem 0 1rem 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.3rem;
+            font-size: 1.05rem;
+        }
+
+        /* Gallery */
+        .gallery {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1rem 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .gallery-row {
+            display: flex;
+            gap: 6px;
+            align-items: flex-start; /* lets each image set its own height */
+        }
+
+        .gallery-row img {
+            /* flex value set inline = aspect ratio (w/h).
+               All images in a row end up the same height with no cropping. */
+            height: auto;
+            display: block;
+            border-radius: 3px;
+            transition: opacity 0.2s;
+            min-width: 0;
+        }
+
+        .gallery-row img:hover {
+            opacity: 0.92;
+        }
+
+        /* Divider */
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 0 auto 2.5rem;
+            max-width: 1100px;
+        }
+    </style>
 </head>
 <body>
 
-<img src="images/pier_rainier.jpeg" alt="Pier 70 in Seattle, with cranes and Mt Rainier in background" width=800/>
+<div class="hero">
+    <img src="images/pier_rainier.jpeg" alt="Seattle waterfront pier at sunset with Mt. Rainier in the background">
+</div>
 
-<h2>Welcome</h2>
-<p>
-Hi, I'm Jack Bennetto, a data scientist living in Seattle, WA.
-</p>
-<p>
-You can <a href="https://www.linkedin.com/in/jackbennetto/">learn more about me</a>,
-see a <a href="https://www.instagram.com/jackbennetto/">few pictures</a>, or
-look at <a href="https://github.com/jackbenn">some of my recent code</a>.
-You can contact me by email at (my first name) @ (this site).
-</p>
+<div class="content">
+    <h1>Jack Bennetto</h1>
+    <p>
+        Hi, I'm a data scientist living in Seattle, WA.
+        You can <a href="https://www.linkedin.com/in/jackbennetto/">learn more about me on LinkedIn</a> or
+        look at <a href="https://github.com/jackbenn">some code I wrote on GitHub</a>.
+    </p>
+    <p>I also host a couple of games I invented:</p>
+    <ul>
+        <li><a href="gengo/">Gengo</a>, a generalized version of Go</li>
+        <li><a href="story/">Taking the Story</a>, a collaborative storytelling experience</li>
+    </ul>
+    <p>You can contact me by email at (my first name) @ (this site).</p>
+</div>
+
+<hr>
+
+<div class="gallery">
+    <!-- Row 1: landscape (16:9) + portrait (3:4) — flex values = w/h ratios -->
+    <div class="gallery-row">
+        <img style="flex: 1.778" src="images/suncadia_aurora.jpeg"   alt="Northern lights in vivid green and purple over rooftops at Suncadia">
+        <img style="flex: 0.75"  src="images/railroad_sunrise.jpeg"  alt="Railroad tracks leading toward a fiery orange sunrise over downtown Seattle">
+    </div>
+    <!-- Row 2: tall portrait + tall portrait + landscape (4:3) -->
+    <div class="gallery-row">
+        <img style="flex: 0.531"  src="images/morning_paddleboard.jpeg" alt="A paddleboarder on glassy, misty water with the sun breaking through clouds">
+        <img style="flex: 0.5625" src="images/space_needle_dusk.jpeg"   alt="The Space Needle framed by trees against a pink and purple dusk sky">
+        <img style="flex: 1.333"  src="images/greenlake_equinox.jpeg"   alt="Kayakers on Green Lake at night surrounded by colorful lanterns at the Equinox festival">
+    </div>
+</div>
+
 </body>
 </html>
